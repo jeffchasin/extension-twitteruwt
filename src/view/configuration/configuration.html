@@ -8,34 +8,18 @@
   <link rel="stylesheet" href="../resources/css/font-awesome.min.css">
   <link rel="stylesheet" href="../resources/css/global.css">
   <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
+  <script src="../resources/js/form.js"></script>
 </head>
 <body>
-  <div class="pure-form pure-form-aligned">
-    <fieldset>
-      <div class="pure-control-group">
-        <label for="account_id">Twitter Account ID</label>
-        <input id="account_id">
-        <span class="pure-form-message-inline">This is a required field.</span>
-      </div>
-    </fieldset>
-  </div>
 
+  <div id="root"></div>
   <script>
-    window.extensionBridge.register({
-      init: function(info) {
-        document.getElementById('account_id').value = (info.settings && info.settings.account_id) || '';
-      },
-
-      getSettings: function() {
-        return {
-          account_id: document.getElementById('account_id').value || ''
-        };
-      },
-
-      validate: function() {
-        return true;
-      }
-    });
+    Form.create({
+       account_id: {
+         title: 'Twitter Account ID',
+         required: true
+       }
+    }, document.getElementById('root'));
   </script>
 </body>
 </html>
