@@ -1,16 +1,17 @@
 {
-  "name": "uwt-reactor",
+  "name": "extension-twitteruwt",
   "version": "1.0.0",
-  "description": "Install Twitter UWT Tag",
-  "main": "index.js",
+  "description": "Provides actions to send beacons to Twitter UWT Tag.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "scaffold": "reactor-scaffold",
+    "sandbox": "reactor-sandbox",
+    "package": "reactor-packager"
   },
   "author": "Twitter",
-  "license": "ISC",
   "devDependencies": {
-    "@adobe/reactor-sandbox": "^7.14.1",
-    "@adobe/reactor-scaffold": "^1.1.7",
-    "@adobe/reactor-turbine": "^18.1.3"
+    "@adobe/reactor-packager": "^2.6.0",
+    "@adobe/reactor-sandbox": "^8.2.0",
+    "@adobe/reactor-scaffold": "^1.1.9",
+    "@adobe/reactor-turbine": "^23.0.0"
   }
 }

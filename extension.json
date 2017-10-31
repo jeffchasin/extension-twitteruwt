@@ -1,8 +1,8 @@
 {
   "displayName": "Twitter Universal Website Tag",
-  "name": "twitter-universal-website-tag",
+  "name": "twitter-uwt",
   "version": "1.0.0",
-  "description": "Install the Twitter UWT",
+  "description": "Provides actions to send beacons to Twitter UWT Tag.",
   "author": {
     "name": "Twitter"
   },
@@ -61,19 +61,6 @@
         "type": "object",
         "properties": {}
       }
-    }
-  ],
-  "events": [
-    {
-      "displayName": "Custom Event",
-      "name": "custom-event",
-      "libPath": "src/lib/events/customEvent.js",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
-        "type": "object",
-        "properties": {}
-      },
-      "viewPath": "events/customEvent.html"
     }
   ],
   "configuration": {
