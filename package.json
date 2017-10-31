@@ -7,6 +7,11 @@
     "sandbox": "reactor-sandbox",
     "package": "reactor-packager"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:dompuiu/extension-twitteruwt.git"
+  },
+  "license": "Apache-2.0",
   "author": "Twitter",
   "devDependencies": {
     "@adobe/reactor-packager": "^2.6.0",
