@@ -3,39 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Send PageView Action</title>
+  <title>Send PageView Pixel Action</title>
   <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
   <link rel="stylesheet" href="../resources/css/font-awesome.min.css">
   <link rel="stylesheet" href="../resources/css/global.css">
   <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
+  <script src="../resources/js/form.js"></script>
 </head>
 <body>
-<div class="pure-form pure-form-aligned">
-  <fieldset>
-    <div class="pure-control-group">
-      <label for="txn_id">Website Tag ID</label>
-      <input id="txn_id">
-      <span class="pure-form-message-inline"></span>
-    </div>
-  </fieldset>
-</div>
 
-  <script>
-    window.extensionBridge.register({
-      init: function(info) {
-        document.getElementById('txn_id').value = (info.settings && info.settings.txn_id) || '';
-      },
-
-      getSettings: function() {
-        return {
-          txn_id: document.getElementById('txn_id').value || ''
-        };
-      },
-
-      validate: function() {
-        return true;
-      }
-    });
-  </script>
+<div id="root"></div>
+<script>
+  Form.create({
+    value: {
+      title: 'Value'
+    },
+    currency: {
+      title: 'Currency'
+    },
+    num_items: {
+      title: 'Number of items'
+    }
+  }, document.getElementById('root'));
+</script>
 </body>
 </html>

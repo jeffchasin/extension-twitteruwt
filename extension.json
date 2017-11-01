@@ -42,16 +42,6 @@
       }
     },
     {
-      "displayName": "Custom",
-      "name": "custom",
-      "libPath": "src/lib/actions/sendCustom.js",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
-        "type": "object",
-        "properties": {}
-      }
-    },
-    {
       "displayName": "Purchase",
       "name": "purchase",
       "libPath": "src/lib/actions/sendPurchase.js",

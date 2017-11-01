@@ -3,55 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Send Download Action</title>
+  <title>Send Download Pixel Action</title>
   <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
   <link rel="stylesheet" href="../resources/css/font-awesome.min.css">
   <link rel="stylesheet" href="../resources/css/global.css">
   <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
+  <script src="../resources/js/form.js"></script>
 </head>
-<body class="coral--light">
-  <div class="pure-form pure-form-aligned">
-    <fieldset>
-      <div class="pure-control-group">
-        <label for="txn_id">Website Tag ID</label>
-        <input id="txn_id">
-        <span class="pure-form-message-inline"></span>
-      </div>
+<body>
 
-      <div class="pure-control-group">
-        <label for="tw_sale_amount">Conversion Amount</label>
-        <input id="tw_sale_amount">
-        <span class="pure-form-message-inline"></span>
-      </div>
-
-      <div class="pure-control-group">
-        <label for="tw_order_quantity">Order Quantity</label>
-        <input id="tw_order_quantity">
-        <span class="pure-form-message-inline"></span>
-      </div>
-    </fieldset>
-  </div>
-
-  <script>
-    window.extensionBridge.register({
-      init: function(info) {
-        document.getElementById('txn_id').value = (info.settings && info.settings.txn_id) || '';
-        document.getElementById('tw_sale_amount').value = (info.settings && info.settings.tw_sale_amount) || '';
-        document.getElementById('tw_order_quantity').value = (info.settings && info.settings.tw_order_quantity) || '';
-      },
-
-      getSettings: function() {
-        return {
-          txn_id: document.getElementById('txn_id').value || '',
-          tw_sale_amount: document.getElementById('tw_sale_amount').value || '',
-          tw_order_quantity: document.getElementById('tw_order_quantity').value || ''
-        };
-      },
-
-      validate: function() {
-        return true;
-      }
-    });
-  </script>
+<div id="root"></div>
+<script>
+  Form.create({
+    value: {
+      title: 'Value'
+    },
+    currency: {
+      title: 'Currency'
+    },
+    content_name: {
+      title: 'Content Name'
+    },
+    content_category: {
+      title: 'Content Category'
+    },
+    num_items: {
+      title: 'Number of items'
+    },
+    content_ids: {
+      title: 'Content IDs',
+      type: 'array'
+    },
+    order_id: {
+      title: 'Order ID'
+    }
+  }, document.getElementById('root'));
+</script>
 </body>
 </html>

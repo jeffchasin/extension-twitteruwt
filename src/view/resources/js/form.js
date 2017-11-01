@@ -28,16 +28,22 @@ var Form = {
       '<label for="' + fieldName + '">' + fieldData.title + '</label>' +
       '<input id="' + fieldName + '" type="text">' +
       '<button class="data-element-button pure-button"><i class="fa fa-database"></i></button>' +
-      this.buildFieldMessage(fieldData.required) +
+      this.buildFieldMessage(fieldData) +
     '</div>';
   },
 
-  buildFieldMessage: function(required) {
-    if (required) {
-      return '<span class="pure-form-message-inline">This is a required field.</span>';
+  buildFieldMessage: function(fieldData) {
+    var msg = '';
+
+    if (fieldData.required) {
+      msg += 'This is a required field.';
     }
 
-    return '<span class="pure-form-message-inline"></span>';
+    if (fieldData.type === 'array') {
+      msg += 'Comma separated values are accepted.';
+    }
+
+    return '<span class="pure-form-message-inline">' + msg + '</span>';
   },
 
   setupExtensionBridge: function(fields) {
@@ -46,7 +52,11 @@ var Form = {
     window.extensionBridge.register({
       init: function(info) {
         fieldNames.forEach(function(fieldName) {
-          document.getElementById(fieldName).value = (info.settings && info.settings[fieldName]) || '';
+          var fieldValue = (info.settings && info.settings[fieldName]) || '';
+          if (Array.isArray(fieldValue)) {
+            fieldValue = fieldValue.join(',');
+          }
+          document.getElementById(fieldName).value = fieldValue;
         }, this);
       },
 
@@ -55,7 +65,16 @@ var Form = {
 
         fieldNames.forEach(function(fieldName) {
           settings[fieldName] = document.getElementById(fieldName).value || '';
+          if (fields[fieldName].type === 'array') {
+            settings[fieldName] = settings[fieldName].split(',').map(function(s) {
+              return s.trim();
+            });
+          }
         }, this);
+
+        Object.keys(settings).forEach(function(key) {
+          return (settings[key] == '' || settings[key] == null) && delete settings[key];
+        });
 
         return settings;
       },
