@@ -1,9 +1,8 @@
 'use strict';
 
-var window = require('@turbine/window');
-var loadScript = require('@turbine/load-script');
-var extensionSettings = require('@turbine/get-extension-settings')();
-var logger = require('@turbine/logger');
+var window = require('@adobe/reactor-window');
+var loadScript = require('@adobe/reactor-load-script');
+var extensionSettings = turbine.getExtensionSettings();
 var twtr;
 
 var createTwtrQueue = function() {
@@ -29,11 +28,11 @@ if (!window.twtr) {
 }
 
 loadScript('https://static.ads-twitter.com/uwt.js').then(function() {
-  logger.log('Twitter Pixel Base Code was successfully loaded.');
+  turbine.logger.log('Twitter Pixel Base Code was successfully loaded.');
 }, function() {
-  logger.error('Twitter Pixel Base Code could not be loaded.');
+  turbine.logger.error('Twitter Pixel Base Code could not be loaded.');
 });
 
-window.twtr('init', extensionSettings.pixelId);
+window.twtr('init', extensionSettings.account_id);
 
 module.exports = twtr;
