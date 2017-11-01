@@ -16,7 +16,21 @@
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
-        "properties": {}
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 1
+          },
+          "num_items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
       }
     },
     {
@@ -27,7 +41,40 @@
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
-        "properties": {}
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_category": {
+            "type": "string",
+            "minLength": 1
+          },
+          "num_items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "order_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
       }
     },
     {
@@ -38,7 +85,29 @@
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
-        "properties": {}
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_category": {
+            "type": "string",
+            "minLength": 1
+          },
+          "order_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
       }
     },
     {
@@ -49,7 +118,41 @@
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
-        "properties": {}
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "num_items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "order_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": ["value", "currency", "content_type", "content_ids"]
       }
     }
   ],
@@ -58,7 +161,14 @@
     "schema": {
       "$schema": "http://json-schema.org/draft-04/schema#",
       "type": "object",
-      "properties": {}
+      "properties": {
+        "account_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false,
+      "required": ["account_id"]
     }
   }
 }
