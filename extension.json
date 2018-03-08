@@ -2,6 +2,7 @@
   "displayName": "Twitter Universal Website Tag",
   "name": "twitter-uwt",
   "version": "1.0.0",
+  "iconPath": "resources/icons/twitter.svg",
   "description": "Provides actions to send beacons to Twitter UWT Tag.",
   "author": {
     "name": "Twitter"
