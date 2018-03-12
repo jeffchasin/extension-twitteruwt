@@ -35,12 +35,12 @@ var Form = {
   buildFieldMessage: function(fieldData) {
     var msg = '';
 
-    if (fieldData.required) {
-      msg += 'This is a required field.';
-    }
-
     if (fieldData.type === 'array') {
       msg += 'Comma separated values are accepted.';
+    }
+
+    if (!fieldData.required) {
+      msg += ' (optional)';
     }
 
     return '<span class="pure-form-message-inline">' + msg + '</span>';
