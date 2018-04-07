@@ -14,9 +14,9 @@
   "license": "Apache-2.0",
   "author": "Twitter",
   "devDependencies": {
-    "@adobe/reactor-packager": "^2.6.0",
-    "@adobe/reactor-sandbox": "^8.2.0",
-    "@adobe/reactor-scaffold": "^1.1.9",
-    "@adobe/reactor-turbine": "^23.0.0"
+    "@adobe/reactor-packager": "^2.6.2",
+    "@adobe/reactor-sandbox": "^8.2.1",
+    "@adobe/reactor-scaffold": "^1.1.10",
+    "@adobe/reactor-turbine": "^24.4.0"
   }
 }
